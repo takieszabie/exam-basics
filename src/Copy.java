@@ -1,6 +1,9 @@
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Copy {
 
@@ -63,7 +66,25 @@ public class Copy {
   }
 
   private static void copyFile(Path source, Path destination) {
+    List<String> sourceFileLines = readFile(source);
+
     System.out.println("Want to copy '" + source
             + "' to '" + destination + "'");
+
+    System.out.println("Read file contents: ");
+    for (String line : sourceFileLines) {
+      System.out.println(line);
+    }
+  }
+
+  private static List<String> readFile(Path filePath) {
+    try {
+      return Files.readAllLines(filePath);
+    } catch (IOException e) {
+      List<String> empty = new ArrayList<>();
+      System.out.println("Error reading file '" + filePath.toString());
+      System.exit(-1);
+      return empty;
+    }
   }
 }
