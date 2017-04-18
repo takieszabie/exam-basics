@@ -12,6 +12,10 @@ public class Copy {
 
     ArgumentContainer inputArgs = new ArgumentContainer(args);
 
+    handleArgs(inputArgs);
+  }
+
+  private static void handleArgs(ArgumentContainer inputArgs) {
     switch (inputArgs.getNumOfElements()) {
       case 0:
         printUsage();
