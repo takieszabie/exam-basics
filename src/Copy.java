@@ -67,13 +67,14 @@ public class Copy {
 
   private static void copyFile(Path source, Path destination) {
     List<String> sourceFileLines = readFile(source);
+    saveToFile(destination, sourceFileLines);
+  }
 
-    System.out.println("Want to copy '" + source
-            + "' to '" + destination + "'");
-
-    System.out.println("Read file contents: ");
-    for (String line : sourceFileLines) {
-      System.out.println(line);
+  private static void saveToFile(Path filePath, List<String> lines) {
+    try {
+      Files.write(filePath, lines);
+    } catch (IOException e) {
+      System.out.println("Error writing file '" + filePath.toString());
     }
   }
 
