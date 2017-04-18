@@ -41,10 +41,13 @@ The application is accepted if:
 3:   
 4:   
 5:   
-6:   
-7:   
-8:   
+6: declaration part of a variable initialization. 
+  (In the example: first word is the variable type, second is the variable name.)
+7: body of the method
+8: return statement
 
 ### What is the constructor? When it is used? [2p]
 #### Your answer:
-[add your answer here]
+A special method in a class, that gets called every time 
+a new object instance is created based on that class.
+The constructor's name is always the same as the class it belongs to.
