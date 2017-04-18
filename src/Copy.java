@@ -9,5 +9,32 @@ public class Copy {
     // No destination provided
     // When both arguments provided and the source is a file
     // Read all contents from it and write it to the destination
+
+    ArgumentContainer inputArgs = new ArgumentContainer(args);
+
+    switch (inputArgs.getNumOfElements()) {
+      case 0:
+        printUsage();
+        break;
+      case 1:
+        System.out.println("No destination provided");
+        break;
+      case 2:
+        copyFile(inputArgs);
+        break;
+      default:
+        printUsage();
+        break;
+    }
   }
+
+  private static void printUsage() {
+    System.out.println("Usage: Copy [source] [destination]");
+  }
+
+  private static void copyFile(ArgumentContainer inputArgs) {
+    System.out.println("Want to copy '" + inputArgs.getArg(0)
+            + "' to '" + inputArgs.getArg(1));
+  }
+
 }
