@@ -16,4 +16,10 @@ class OddAvgTest {
     testInput = Arrays.asList(5, 10, 15);
     assertEquals(10d, OddAvg.oddAverage(testInput));
   }
+
+  @Test
+  void oddAverage_1number() {
+    testInput = Arrays.asList(17);
+    assertEquals(17, OddAvg.oddAverage(testInput));
+  }
 }
