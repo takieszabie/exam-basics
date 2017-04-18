@@ -1,3 +1,7 @@
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 public class Copy {
 
   public static void main(String[] args) {
@@ -24,7 +28,7 @@ public class Copy {
         System.out.println("No destination provided");
         break;
       case 2:
-        copyFile(inputArgs);
+        handleCopying(inputArgs);
         break;
       default:
         printUsage();
@@ -36,9 +40,30 @@ public class Copy {
     System.out.println("Usage: Copy [source] [destination]");
   }
 
-  private static void copyFile(ArgumentContainer inputArgs) {
-    System.out.println("Want to copy '" + inputArgs.getArg(0)
-            + "' to '" + inputArgs.getArg(1));
+  private static void handleCopying(ArgumentContainer inputArgs) {
+    Path sourcePath = Paths.get(inputArgs.getArg(0));
+    Path destinationPath = Paths.get(inputArgs.getArg(1));
+
+    if (!isFileExist(sourcePath)) {
+      System.out.println("Source file does not exist");
+      return;
+    } else if (!isFileReadable(sourcePath)) {
+      System.out.println("Cannot read source file");
+      return;
+    }
+    copyFile(sourcePath, destinationPath);
   }
 
+  private static boolean isFileReadable(Path filePath) {
+    return Files.isReadable(filePath);
+  }
+
+  private static boolean isFileExist(Path filePath) {
+    return Files.exists(filePath);
+  }
+
+  private static void copyFile(Path source, Path destination) {
+    System.out.println("Want to copy '" + source
+            + "' to '" + destination + "'");
+  }
 }
