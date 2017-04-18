@@ -22,4 +22,16 @@ class OddAvgTest {
     testInput = Arrays.asList(17);
     assertEquals(17, OddAvg.oddAverage(testInput));
   }
+
+  @Test
+  void oddAverage_zeroLengthList() {
+    testInput = new ArrayList<>();
+    assertEquals(0, OddAvg.oddAverage(testInput));
+  }
+
+  @Test
+  void oddAverage_nullList() {
+    assertEquals(0, OddAvg.oddAverage(testInput));
+  }
+
 }
