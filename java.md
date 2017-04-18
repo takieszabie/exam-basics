@@ -37,17 +37,19 @@ The application is accepted if:
 #### Your answer:
 [add your answer here]   
 1:   
-2:   
-3:   
-4:   
-5:   
-6: declaration part of a variable initialization. 
-  (In the example: first word is the variable type, second is the variable name.)
-7: body of the method
-8: return statement
+2: return type  
+3: method name  
+4: inside the parentheses: the method's _signature_  
+   "int n" means the method requires an argument of type _int_  
+5: "n" will be the name given to the _int_ type argument variable  
+   _inside the method's scope_  
+6: declaration part of a variable initialization.   
+   (In the example: first word is the variable type, second is the variable name.)  
+7: body of the method  
+8: return statement  
 
 ### What is the constructor? When it is used? [2p]
 #### Your answer:
-A special method in a class, that gets called every time 
-a new object instance is created based on that class.
-The constructor's name is always the same as the class it belongs to.
+A special method in a class, which gets called every time 
+a new object instance is created based on that class.  
+The constructor's name is always the same as the name of the class it belongs to.
