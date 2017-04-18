@@ -14,6 +14,12 @@ public class OddAvg {
     int sum = 0;
     int numberOfItems = 0;
 
+    if (inputNumbers == null) {
+      return 0d;
+    } else if (inputNumbers.size() == 0) {
+      return 0d;
+    }
+
     for (Integer number : inputNumbers) {
       if (number % 2 == 1) {
         sum += number;
