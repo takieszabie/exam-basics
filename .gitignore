@@ -1,6 +1,10 @@
-out/
-.idea/
+.idea
+out
 *.iml
 *.xml
-*.class
-.~lock.*#
+*.cs
+*.py
+*.ts
+# if you have a mac
+.DS_Store
+
